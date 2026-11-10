@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FB7D0"/><stop offset=".5" stop-color="#9EDDDD"/><stop offset=".8" stop-color="#FCDDB5"/></linearGradient>
+    <linearGradient id="sol" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE08A"/><stop offset=".55" stop-color="#F9A94A"/><stop offset="1" stop-color="#EE7B3C"/></linearGradient>
+    <clipPath id="bandas"><rect x="60" y="60" width="392" height="196"/><rect x="60" y="268" width="392" height="20"/><rect x="60" y="302" width="392" height="22"/><rect x="60" y="340" width="392" height="60"/></clipPath>
+    <clipPath id="tabla"><path d="M0 -172 C 42 -112, 48 62, 0 172 C -48 62, -42 -112, 0 -172 Z"/></clipPath>
+  </defs>
+  <rect width="512" height="512" fill="url(#cielo)"/>
+  <circle cx="232" cy="232" r="134" fill="url(#sol)" clip-path="url(#bandas)"/>
+  <path d="M-72 356 q 36.0 -20 72 0 t 72 0 t 72 0 t 72 0 t 72 0 t 72 0 t 72 0 t 72 0 t 72 0 t 72 0 V 560 H -200 Z" fill="#4FC3D9"/>
+  <path d="M-88 392 q 44.0 -20 88 0 t 88 0 t 88 0 t 88 0 t 88 0 t 88 0 t 88 0 t 88 0 V 560 H -200 Z" fill="#1E8FA8"/>
+  <g transform="translate(362 286) rotate(13)">
+    <path d="M0 -172 C 42 -112, 48 62, 0 172 C -48 62, -42 -112, 0 -172 Z" fill="#FFF6E4"/>
+    <g clip-path="url(#tabla)"><rect x="-70" y="-46" width="140" height="40" fill="#E86A5C"/><rect x="-70" y="6" width="140" height="18" fill="#4FC3D9"/></g>
+    <path d="M0 -150 V 150" stroke="#C9A46B" stroke-width="4" stroke-linecap="round"/>
+    <path d="M0 -172 C 42 -112, 48 62, 0 172 C -48 62, -42 -112, 0 -172 Z" fill="none" stroke="#12303A" stroke-width="10" stroke-linejoin="round"/>
+  </g>
+  <path d="M-64 438 q 32.0 -18 64 0 t 64 0 t 64 0 t 64 0 t 64 0 t 64 0 t 64 0 t 64 0 t 64 0 t 64 0 V 560 H -200 Z" fill="#126B82"/>
+  <path d="M-80 478 q 40.0 -14 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0 V 560 H -200 Z" fill="#0D4F62"/>
+</svg>

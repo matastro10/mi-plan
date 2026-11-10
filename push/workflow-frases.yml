@@ -1,0 +1,47 @@
+name: Frases de guerrero
+
+on:
+  schedule:
+    # Cada hora, al minuto 58 (horario UTC). El script revisa tu horario en data/config.json
+    # y solo manda frase si toca. GitHub a veces se atrasa unos minutos: es normal.
+    - cron: '58 * * * *'
+  workflow_dispatch:
+    inputs:
+      prueba:
+        description: 'Mandar una notificación de prueba ahorita (sin importar la hora)'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: frases
+  cancel-in-progress: false
+
+jobs:
+  enviar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      VAPID_PUBLIC_KEY: ${{ secrets.VAPID_PUBLIC_KEY }}
+      VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+      PUSH_SUBSCRIPTION: ${{ secrets.PUSH_SUBSCRIPTION }}
+      NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+      PRUEBA: ${{ github.event_name == 'workflow_dispatch' && inputs.prueba }}
+    steps:
+      - name: Bajar el repositorio
+        uses: actions/checkout@v6
+
+      - name: ¿Toca mandar frase?
+        id: plan
+        run: node push/enviar.mjs --decidir
+
+      - name: Instalar web-push
+        if: steps.plan.outputs.enviar == 'true'
+        working-directory: push
+        run: npm ci --omit=dev --no-audit --no-fund
+
+      - name: Mandar la frase
+        if: steps.plan.outputs.enviar == 'true'
+        run: node push/enviar.mjs

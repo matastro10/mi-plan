@@ -1,0 +1,297 @@
+{
+  "version": 1,
+  "actualizado": "2026-11-09",
+  "metas": {
+    "agua": { "minMl": 2000, "maxMl": 2500, "vasoMl": 250 },
+    "ejercicio": { "diasMin": 4, "diasMax": 5, "minutosMin": 40, "minutosMax": 60 },
+    "comidasLibresPorSemana": 1,
+    "notaComidaLibre": "1 comida libre por semana si cumplo el plan y el ejercicio."
+  },
+  "intercambiables": ["comida", "cena"],
+  "comidas": [
+    {
+      "id": "desayuno",
+      "nombre": "Desayuno",
+      "emoji": "🌅",
+      "inicio": "07:00",
+      "fin": "09:00",
+      "instruccion": "Elige 1 platillo + 1 fruta.",
+      "grupos": [
+        {
+          "id": "platillo",
+          "titulo": "Platillo",
+          "elige": 1,
+          "opciones": [
+            {
+              "id": "hotcakes",
+              "nombre": "Hotcakes de plátano con avena",
+              "detalle": "1 huevo, 1 plátano, 4 cucharadas de avena, leche la necesaria, 2 cucharaditas de miel o mermelada",
+              "nota": "En esta opción NO se agrega fruta: ya lleva plátano.",
+              "omiteGrupos": ["fruta"]
+            },
+            {
+              "id": "quesadillas",
+              "nombre": "Quesadillas",
+              "detalle": "3 tortillas de maíz, 60 g (3 dedos) de queso fresco, 40 g de pechuga de pavo, ½ aguacate"
+            },
+            {
+              "id": "huevo-jamon",
+              "nombre": "Huevo con jamón",
+              "detalle": "2 huevos, 40 g de pechuga de pavo, 2 rebanadas de pan integral o 2 tortillas de maíz"
+            },
+            {
+              "id": "pan-huevo-aguacate",
+              "nombre": "Pan con huevo y aguacate",
+              "detalle": "2 huevos, 2 rebanadas de pan integral, ½ aguacate"
+            },
+            {
+              "id": "huevo-queso",
+              "nombre": "Huevo con queso",
+              "detalle": "2 huevos, 40 g (2 dedos) de queso fresco, 2 rebanadas de pan integral o 2 tortillas de maíz"
+            }
+          ]
+        },
+        {
+          "id": "fruta",
+          "titulo": "Fruta",
+          "elige": 1,
+          "equivalencias": true,
+          "opciones": [
+            { "id": "pera", "nombre": "1 pera" },
+            { "id": "manzana", "nombre": "1 manzana" },
+            { "id": "platano", "nombre": "1 plátano" },
+            { "id": "sandia", "nombre": "1 taza de sandía" },
+            { "id": "uvas", "nombre": "1 taza de uvas" },
+            { "id": "naranja", "nombre": "1 naranja" },
+            { "id": "mandarina", "nombre": "1 mandarina grande o 2 chicas" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colacion1",
+      "nombre": "Colación",
+      "nombreLargo": "Colación de mediodía",
+      "emoji": "🥜",
+      "inicio": "12:00",
+      "fin": "13:00",
+      "instruccion": "Las dos partes: 1) fruto seco + 2) verdura.",
+      "grupos": [
+        {
+          "id": "seco",
+          "titulo": "1) Fruto seco",
+          "elige": 1,
+          "opciones": [
+            { "id": "almendras", "nombre": "15 almendras" },
+            { "id": "nuez", "nombre": "15 mitades de nuez" }
+          ]
+        },
+        {
+          "id": "verdura",
+          "titulo": "2) Verdura (cantidad libre)",
+          "elige": "varias",
+          "opciones": [
+            { "id": "brocoli", "nombre": "Brócoli" },
+            { "id": "pepino", "nombre": "Pepino" },
+            { "id": "zanahoria", "nombre": "Zanahoria" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "comida",
+      "nombre": "Comida",
+      "emoji": "🍽️",
+      "inicio": "13:00",
+      "fin": "15:00",
+      "instruccion": "Come en este orden: verduras, proteína, cereal, grasa y fruta.",
+      "notas": [
+        "Todo con spray para cocinar, sin aceite ni mantequilla.",
+        "Se puede invertir con la cena."
+      ],
+      "grupos": [
+        {
+          "id": "verduras",
+          "titulo": "1) Verduras (cantidad libre)",
+          "elige": "varias",
+          "opciones": [
+            { "id": "ensalada", "nombre": "Ensalada" },
+            { "id": "sopa", "nombre": "Sopa" },
+            { "id": "guisado", "nombre": "Guisado" },
+            { "id": "vapor", "nombre": "Al vapor" },
+            { "id": "parrilla", "nombre": "A la parrilla" }
+          ]
+        },
+        {
+          "id": "proteina",
+          "titulo": "2) Proteína: 150 g (la mano con dedos)",
+          "elige": 1,
+          "opciones": [
+            { "id": "pollo", "nombre": "Pechuga de pollo" },
+            { "id": "pavo", "nombre": "Pechuga de pavo" },
+            { "id": "pescado", "nombre": "Pescado blanco" },
+            { "id": "salmon", "nombre": "Salmón" },
+            { "id": "atun", "nombre": "Atún" },
+            { "id": "res", "nombre": "Carne magra de res" },
+            { "id": "cerdo", "nombre": "Carne magra de cerdo" }
+          ]
+        },
+        {
+          "id": "cereal",
+          "titulo": "3) Cereal",
+          "elige": 1,
+          "opciones": [
+            { "id": "arroz", "nombre": "½ taza de arroz" },
+            { "id": "pasta", "nombre": "1 taza de pasta" },
+            { "id": "papa", "nombre": "½ papa mediana con cáscara" },
+            { "id": "quinoa", "nombre": "½ taza de quinoa" }
+          ]
+        },
+        {
+          "id": "grasa",
+          "titulo": "4) Grasa",
+          "elige": 1,
+          "opciones": [
+            { "id": "oliva", "nombre": "1 cucharadita de aceite de oliva extra virgen" },
+            { "id": "aguacate", "nombre": "¼ de aguacate mediano o ½ aguacate chico" }
+          ]
+        },
+        {
+          "id": "fruta",
+          "titulo": "5) Fruta",
+          "elige": 1,
+          "equivalencias": true,
+          "opciones": [
+            { "id": "manzana", "nombre": "1 manzana" },
+            { "id": "pera", "nombre": "1 pera" },
+            { "id": "platano", "nombre": "1 plátano" },
+            { "id": "pina", "nombre": "1 taza de piña" },
+            { "id": "sandia", "nombre": "1 taza de sandía" },
+            { "id": "melon", "nombre": "1 taza de melón" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colacion2",
+      "nombre": "Colación",
+      "nombreLargo": "Colación de la tarde",
+      "emoji": "🥛",
+      "inicio": "16:00",
+      "fin": "21:00",
+      "instruccion": "1) Elige una opción. 2) El alfajor es opcional: máximo 2 veces por semana.",
+      "grupos": [
+        {
+          "id": "base",
+          "titulo": "1) Elige una",
+          "elige": 1,
+          "opciones": [
+            { "id": "kefir", "nombre": "1 taza de kéfir natural sin azúcar" },
+            { "id": "yogurt", "nombre": "½ taza de yogurt natural sin azúcar" },
+            { "id": "queso", "nombre": "60 g (3 dedos) de queso mozzarella o fresco" },
+            { "id": "pavo", "nombre": "60 g de pechuga de pavo" }
+          ]
+        },
+        {
+          "id": "extra",
+          "titulo": "2) Alfajor",
+          "elige": 1,
+          "opcional": true,
+          "opciones": [
+            { "id": "alfajor", "nombre": "1 alfajor", "limiteSemanal": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cena",
+      "nombre": "Cena",
+      "emoji": "🌙",
+      "inicio": "19:00",
+      "fin": "21:00",
+      "instruccion": "Elige 1 opción.",
+      "notas": ["Se puede invertir con la comida."],
+      "grupos": [
+        {
+          "id": "platillo",
+          "titulo": "Platillo",
+          "elige": 1,
+          "opciones": [
+            {
+              "id": "bowl",
+              "nombre": "Bowl de arroz con pollo o atún y verduras",
+              "detalle": "120 g de pechuga de pollo o 1 lata de atún en agua, 1 taza de arroz, brócoli, zanahoria y calabaza al gusto"
+            },
+            {
+              "id": "tacos",
+              "nombre": "Tacos de carne asada",
+              "detalle": "120 g de carne de res, 3 tortillas de maíz, pimiento, cebolla y/o champiñones al gusto"
+            },
+            {
+              "id": "sandwich",
+              "nombre": "Sándwich de pavo y queso",
+              "detalle": "2 rebanadas de pan integral, 1 cucharadita de mayonesa, 1 cucharadita de mostaza, 2 rebanadas de pechuga de pavo, 40 g (2 dedos) de queso"
+            },
+            {
+              "id": "ensalada",
+              "nombre": "Ensalada de atún o pollo",
+              "detalle": "1 lata de atún en agua o ½ taza de pollo deshebrado, 1 cucharadita de mayonesa, ¼ de aguacate, pepino, jitomate, cebolla y lechuga al gusto, limón"
+            },
+            {
+              "id": "quesadilla",
+              "nombre": "Quesadilla de queso con champiñones",
+              "detalle": "3 tortillas de maíz, 60 g (3 dedos) de queso fresco, champiñones al gusto"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "libres": {
+    "nota": "En cualquier momento.",
+    "bebidas": [
+      "Agua natural, de limón o de jamaica",
+      "Café o té sin leche ni azúcar"
+    ],
+    "alimentos": [
+      "Verduras (excepto betabel, camote, chícharo, edamames, elote y papa)",
+      "Consomé de pollo desgrasado",
+      "Sopa de verdura sin grasa"
+    ],
+    "sazon": [
+      "Hierbas y especias",
+      "Fruta del monje y stevia"
+    ],
+    "ejemplosVerdura": ["pepino", "brócoli", "zanahoria"]
+  },
+  "equivalenciasFruta": [
+    "2 guayabas",
+    "1 mandarina",
+    "1 mango",
+    "1 manzana",
+    "1 naranja",
+    "1 pera",
+    "1 plátano",
+    "1 toronja",
+    "1 taza de fresas o moras",
+    "1 taza de melón",
+    "1 taza de papaya",
+    "1 taza de piña",
+    "1 taza de sandía",
+    "1 taza de uvas"
+  ],
+  "medidas": [
+    { "medida": "1 taza", "equivale": "240 ml" },
+    { "medida": "1 cucharada", "equivale": "15 ml" },
+    { "medida": "1 cucharadita", "equivale": "5 ml" }
+  ],
+  "comerFuera": [
+    "No comer pan antes.",
+    "Empezar por ensalada o sopa de verduras.",
+    "Tomar agua natural, de limón o de jamaica sin azúcar, o refresco sin azúcar de vez en cuando.",
+    "Aderezo aparte y solo 1 cucharada.",
+    "Pedir todo sin grasa.",
+    "Evitar lo capeado, empanizado, crujiente, cremoso, rebozado, frito, gratinado o a la mantequilla.",
+    "Respetar las porciones de verduras, proteína, grasas y cereales."
+  ]
+}

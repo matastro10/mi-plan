@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es-MX" data-tema="dia">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mi Plan</title>
+  <meta name="description" content="Mi plan de alimentación de cada día.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#4FC3D9">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Mi Plan">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preload" href="fuentes/shrikhand-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fuentes/nunito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script>
+    // Pone el modo día o noche antes de pintar, para que no parpadee.
+    (function () {
+      try {
+        var guardado = JSON.parse(localStorage.getItem('miplan:v1') || '{}');
+        var tema = (guardado.ajustes && guardado.ajustes.tema) || 'auto';
+        var h = new Date().getHours();
+        var noche = tema === 'noche' || (tema === 'auto' && (h >= 20 || h < 6));
+        document.documentElement.dataset.tema = noche ? 'noche' : 'dia';
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="cabecera" id="cabecera">
+      <div class="escena-caja" id="escena"></div>
+      <div class="cabecera-txt">
+        <p class="saludo" id="saludo"></p>
+        <h1 class="marca" id="titulo">Mi Plan</h1>
+        <p class="fecha" id="fecha"></p>
+      </div>
+    </header>
+    <main class="vista" id="vista" data-vista="hoy">
+      <p class="cargando">Preparando tu playa…</p>
+    </main>
+  </div>
+
+  <div class="mar" id="mar" aria-hidden="true"></div>
+
+  <nav class="barra" aria-label="Secciones">
+    <button type="button" class="pes" data-accion="ir" data-vista="hoy" aria-current="page">
+      <span class="pes-ico" aria-hidden="true">🏄</span><span class="pes-txt">Hoy</span>
+    </button>
+    <button type="button" class="pes" data-accion="ir" data-vista="plan">
+      <span class="pes-ico" aria-hidden="true">🧭</span><span class="pes-txt">Mi plan</span>
+    </button>
+    <button type="button" class="boya-btn" data-accion="hambre" aria-label="Tengo mucha hambre">
+      <span class="boya-crono" id="boya-crono" hidden></span>
+      <span class="boya" aria-hidden="true"><span class="boya-centro">🚨</span></span>
+      <span class="boya-txt" aria-hidden="true">Tengo mucha hambre</span>
+    </button>
+    <button type="button" class="pes" data-accion="ir" data-vista="historial">
+      <span class="pes-ico" aria-hidden="true">🐚</span><span class="pes-txt">Historial</span>
+    </button>
+    <button type="button" class="pes" data-accion="ir" data-vista="ajustes">
+      <span class="pes-ico" aria-hidden="true">⚓</span><span class="pes-txt">Ajustes</span>
+    </button>
+  </nav>
+
+  <div id="hojas"></div>
+  <div class="avisos" id="avisos" role="status" aria-live="polite"></div>
+
+  <noscript><p style="padding:24px;font-family:sans-serif">Esta app necesita JavaScript para funcionar.</p></noscript>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
